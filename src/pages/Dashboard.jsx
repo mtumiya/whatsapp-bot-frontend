@@ -63,12 +63,15 @@ function Dashboard() {
 
   return (
     <div className="min-h-screen bg-gray-100 p-8">
-      <h1 className="text-4xl font-bold mb-8">WhatsApp Bot Dashboard</h1>
+      <div className="flex items-center gap-3 mb-8">
+        <span className="text-4xl">🏥</span>
+        <h1 className="text-4xl font-bold">Clinic Patient Communication Dashboard</h1>
+      </div>
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <div className="bg-white p-6 rounded-lg shadow">
-          <h3 className="text-gray-500 text-sm">Total Conversations</h3>
+          <h3 className="text-gray-500 text-sm">Total Patient Inquiries</h3>
           <p className="text-3xl font-bold text-blue-600">{stats.totalConversations}</p>
         </div>
         <div className="bg-white p-6 rounded-lg shadow">
@@ -83,16 +86,16 @@ function Dashboard() {
 
       {/* Recent Conversations */}
       <div className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-2xl font-bold mb-4">Recent Conversations</h2>
+        <h2 className="text-2xl font-bold mb-4">Recent Patient Conversations</h2>
         <div className="space-y-4">
           {conversations.length === 0 ? (
-            <p className="text-gray-500">No conversations yet</p>
+            <p className="text-gray-500">No patient inquiries yet</p>
           ) : (
             conversations.map((conv) => (
               <div key={conv.id} className="border-b pb-4">
                 <div className="flex justify-between">
                   <div>
-                    <p className="font-semibold">{conv.customer_name || 'Unknown'}</p>
+                    <p className="font-semibold">{conv.customer_name || 'Patient'}</p>
                     <p className="text-sm text-gray-500">{conv.customer_phone}</p>
                   </div>
                   <div className="text-right">
